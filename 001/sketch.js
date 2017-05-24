@@ -57,6 +57,6 @@ function animateLine() {
 }
 
 function draw() {
-  drawPoints();
+  //drawPoints();
   animateLine();
 }
