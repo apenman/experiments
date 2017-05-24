@@ -46,6 +46,7 @@ body {
   text-align: center;
 }
 
+/* Set flexbox ordering for columns */
 @media all and (min-width: 600px) {
   .prev { flex: 1 auto; }
   .next { flex: 1 auto; }
