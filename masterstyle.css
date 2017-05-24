@@ -1,0 +1,78 @@
+/* Set no margin for entire page*/
+body {
+  margin: auto;
+  /* Turn off scrolling -- may cause issues with sketch bottom alignment*/
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.sketch {
+  z-index: -999; /* ew */
+}
+
+.header {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+
+  font-weight: bold;
+  text-align: center;
+}
+
+.header > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.title {
+  text-align: center;
+  background: deepskyblue;
+}
+
+.prev {
+  float: left;
+  background: gold;
+  text-align: center;
+}
+
+.next {
+  float: right;
+  background: gold;
+  text-align: center;
+}
+
+@media all and (min-width: 600px) {
+  .prev { flex: 1 auto; }
+  .next { flex: 1 auto; }
+}
+
+@media all and (min-width: 800px) {
+  .title    { flex: 3 0px; }
+  .prev { order: 1; }
+  .title    { order: 2; }
+  .next { order: 3; }
+  .footer  { order: 4; }
+}
+
+/* For arrows */
+i {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
