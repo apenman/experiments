@@ -11,6 +11,7 @@ function setup() {
   canvasHeight = windowHeight - 38;
   canvas.class('sketch');
 
+  cursor(HAND);
   boxes = [];
   for (var i = 50; i < canvasWidth - 50; i += 100) {
     for (var j = 50; j < canvasHeight; j += 100) {
