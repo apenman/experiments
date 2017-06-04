@@ -39,14 +39,19 @@ a {
   background: deepskyblue;
 }
 
+.info {
+  text-align: center;
+  background: deepskyblue;
+  display: none;
+  z-index: 10;
+}
+
 .prev {
-  float: left;
   background: gold;
   text-align: center;
 }
 
 .next {
-  float: right;
   background: gold;
   text-align: center;
 }
@@ -58,27 +63,35 @@ a {
 }
 
 @media all and (min-width: 800px) {
-  .title    { flex: 3 0px; }
-  .prev { order: 1; }
-  .title    { order: 2; }
-  .next { order: 3; }
-  .footer  { order: 4; }
+  .title  { flex: 3 0px; }
+  .prev   { order: 1; flex: 0 0 150px;}
+  .title  { order: 2; }
+  .next   { order: 3; flex: 0 0 150px;}
+  .info   { order: 4; width: 100%;}
 }
 
-/* For arrows */
-i {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
+
+/* Info toggle css */
+input[type=checkbox] {
+  display: none;
 }
 
-.right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
+label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
 }
 
-.left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
+/* Toggled State */
+input[type=checkbox]:checked ~ div .info {
+  display: block;
+  position: absolute;
+  margin-top: 38px;
+}
+
+input[type=checkbox]:checked + div label i {
+  /*color: #383838;*/
+  color: white;
 }

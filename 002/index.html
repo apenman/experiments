@@ -1,24 +1,34 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+<meta charset="utf-8"/>
   <script src="../lib/p5.min.js"></script>
   <script src="../lib/dat.gui.min.js"></script>
   <script src="../lib/quicksettings/latest/quicksettings.min.js"></script>
+  <script src="../lib/jquery-3.2.1.min.js"></script>
+  <script src="controls.js"></script>
   <script src="sketch.js"></script>
   <link rel="stylesheet" type="text/css" href="../masterstyle.css">
+  <link rel="stylesheet" type="text/css" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+  <input type="checkbox" id="toggle-1">
   <div class="header">
     <div class="prev">
-      <a href="../001/index.html"><i class="arrow left"></i>prev</a>
+      <a href="../001/index.html"><i class="fa fa-chevron-left"></i> prev</a>
     </div>
-    <div class="title">Shadow Paths</div>
+    <div class="title">
+      <label for="toggle-1">
+        Shadow Paths
+        <i class="fa fa-info-circle"></i>
+      </label>
+    </div>
+    <div class="info">
+      Playing with shadows based on mouse location.
+    </div>
     <div class="next">
-      <span style="visibility:hidden;">
-        <a href="../003/index.html">next<i class="arrow right"></i></a>
-      </span>
+      <a href="../003/index.html">next <i class="fa fa-chevron-right"></i></a>
     </div>
   </div>
 </body>

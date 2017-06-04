@@ -1,24 +1,36 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+<meta charset="utf-8"/>
   <script src="../lib/p5.min.js"></script>
   <script src="../lib/dat.gui.min.js"></script>
   <script src="../lib/quicksettings/latest/quicksettings.min.js"></script>
+  <script src="../lib/jquery-3.2.1.min.js"></script>
+  <script src="controls.js"></script>
   <script src="sketch.js"></script>
   <link rel="stylesheet" type="text/css" href="../masterstyle.css">
+  <link rel="stylesheet" type="text/css" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+  <input type="checkbox" id="toggle-1">
   <div class="header">
     <div class="prev">
-      <span style="visibility:hidden;">
-        <a href=""><i class="arrow left"></i>prev</a>
+      <span style="visibility: hidden;">
+        <a href="../001/index.html"><i class="fa fa-chevron-left"></i> prev</a>
       </span>
     </div>
-    <div class="title">Sol Lewitt Wall Drawing #118</div>
+    <div class="title">
+      <label for="toggle-1">
+        Sol Lewitt Wall Drawing #118
+        <i class="fa fa-info-circle"></i>
+      </label>
+    </div>
+    <div class="info">
+      An animated recreation of Sol Lewitt's Wall Drawing #118. Fifty randomly placed points connected by straight lines.
+    </div>
     <div class="next">
-      <a href="../002/index.html">next<i class="arrow right"></i></a>
+      <a href="../002/index.html">next <i class="fa fa-chevron-right"></i></a>
     </div>
   </div>
 </body>
