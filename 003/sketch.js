@@ -8,14 +8,12 @@ function setup() {
   canvasWidth = windowWidth;
   canvasHeight = windowHeight - 38;
   canvas.class('sketch');
-
   background(255);
 }
 
-
 function draw() {
   var l = 200.0;
-  var tx = mouseX + cos(radians(90))* l;
+  var tx = mouseX + cos(radians(180))* l;
   var ty = mouseY + sin(radians(180))* l;
 
   line(mouseX, mouseY, tx, ty);
