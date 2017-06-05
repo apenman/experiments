@@ -1,4 +1,5 @@
 var canvas, canvasWidth, canvasHeight;
+var rotation, r, g, b, l;
 
 function setup() {
   // Set canvas
@@ -8,13 +9,42 @@ function setup() {
   canvasWidth = windowWidth;
   canvasHeight = windowHeight - 38;
   canvas.class('sketch');
+
+  r = g = b = rotation = 0;
+  l = 100;
   background(255);
 }
 
 function draw() {
-  var l = 200.0;
-  var tx = mouseX + cos(radians(180))* l;
-  var ty = mouseY + sin(radians(180))* l;
+  var mx = mouseX;
+  var my = mouseY;
+  // Avoid drawing before mouse enters frame
+  if(mx != 0 && my != 0) {
+    stroke(r,g,b);
+    push();
+    rotate(rotation);
+    line(mx-l/2, my, mx+l/2, my);
+    pop();
+  }
+}
 
-  line(mouseX, mouseY, tx, ty);
+function mouseClicked() {
+  background(255);
+}
+
+function keyPressed() {
+  // TODO: Add rotation
+  if (keyCode === LEFT_ARROW) {
+  } else if (keyCode === RIGHT_ARROW) {
+  } else if (keyCode === UP_ARROW) {
+    l += 20;
+  } else if (keyCode === DOWN_ARROW) {
+    if(l - 20 >= 0) {
+      l -= 20;
+    }
+  } else if (key === 'C') {
+    r = random(255);
+    g = random(255);
+    b = random(255);
+  }
 }
