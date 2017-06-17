@@ -22,12 +22,6 @@ function setup() {
   j = 1;
 }
 
-function windowResized() {
-  canvasWidth = windowWidth;
-  canvasHeight = windowHeight - 38;
-  resizeCanvas(windowWidth, canvasHeight);
-}
-
 function drawPoints() {
   for (var d = 0; d < numPoints; d++) {
     point(xPoints[d], yPoints[d])

@@ -1,6 +1,7 @@
 var canvas, canvasWidth, canvasHeight;
 var cells, ruleset, generation, w;
 var r,g,b;
+var gui;
 
 function setup() {
   // Set canvas
@@ -10,8 +11,7 @@ function setup() {
   canvasWidth = windowWidth;
   canvasHeight = windowHeight - 38;
   canvas.class('sketch');
-
-
+  
   ruleset = [0,1,0,1,1,0,1,0];
   generation = 0;
   randomColor();
