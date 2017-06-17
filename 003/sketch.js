@@ -28,6 +28,12 @@ function draw() {
   }
 }
 
+function windowResized() {
+  canvasWidth = windowWidth;
+  canvasHeight = windowHeight - 38;
+  resizeCanvas(windowWidth, canvasHeight);
+}
+
 function mouseClicked() {
   background(255);
 }

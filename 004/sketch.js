@@ -10,23 +10,9 @@ function setup() {
   canvasHeight = windowHeight - 38;
   canvas.class('sketch');
 
-  observers = [];
-  for (var i = 50; i < canvasWidth - 50; i += 50) {
-    for (var j = 50; j < canvasHeight; j += 50) {
-      observers.push(new Observer(i, j));
-    }
-  }
-
   strokeWeight(4);
+  createObservers();
 }
-
-// function draw() {
-//   background(255);
-//   translate(canvasWidth/2, canvasHeight/2);
-//   var a = atan2(mouseY-canvasHeight/2, mouseX-canvasWidth/2);
-//   rotate(a);
-//   line(0, -40, 0, 40);
-// }
 
 function draw() {
   background(255);
@@ -36,6 +22,13 @@ function draw() {
     observers[i].update(mx, my);
     observers[i].display();
   }
+}
+
+function windowResized() {
+  canvasWidth = windowWidth;
+  canvasHeight = windowHeight - 38;
+  resizeCanvas(windowWidth, canvasHeight);
+  createObservers();
 }
 
 function Observer(x, y) {
@@ -56,4 +49,13 @@ function Observer(x, y) {
     line(0, -20, 0, 20);
     pop();
   }
+}
+
+function createObservers() {
+  observers = [];
+    for (var i = 50; i < canvasWidth - 50; i += 50) {
+      for (var j = 50; j < canvasHeight - 50; j += 50) {
+        observers.push(new Observer(i, j));
+      }
+    }
 }

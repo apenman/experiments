@@ -12,14 +12,7 @@ function setup() {
   canvas.class('sketch');
 
   cursor(HAND);
-  boxes = [];
-  for (var i = 50; i < canvasWidth - 50; i += 100) {
-    for (var j = 50; j < canvasHeight; j += 100) {
-      boxes.push(new Box([i, j], [i + 50, j], [i + 50, j + 50], [i, j + 50]));
-    }
-  }
-  // boxes.push(new Box([100, 100], [150, 100], [150, 150], [100, 150]));
-  // boxes.push(new Box([200, 200], [250, 200], [250, 250], [200, 250]));
+  createBoxes();
   background(255);
   strokeWeight(4);
 }
@@ -30,6 +23,13 @@ function draw() {
     box.updateFaces();
     box.drawFaces();
   });
+}
+
+function windowResized() {
+  canvasWidth = windowWidth;
+  canvasHeight = windowHeight - 38;
+  resizeCanvas(windowWidth, canvasHeight);
+  createBoxes();
 }
 
 //          f[0]
@@ -91,6 +91,15 @@ function Box(v0, v1, v2, v3) {
 
     if (this.faces[3]) {
       line(this.vertices[0][0], this.vertices[0][1], this.vertices[3][0], this.vertices[3][1]);
+    }
+  }
+}
+
+function createBoxes() {
+  boxes = [];
+  for (var i = 50; i < canvasWidth - 50; i += 100) {
+    for (var j = 50; j < canvasHeight; j += 100) {
+      boxes.push(new Box([i, j], [i + 50, j], [i + 50, j + 50], [i, j + 50]));
     }
   }
 }

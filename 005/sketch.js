@@ -56,6 +56,11 @@ function draw() {
     }
 }
 
+function windowResized() {
+  canvasWidth = windowWidth;
+  canvasHeight = windowHeight - 38;
+  resizeCanvas(windowWidth, canvasHeight);
+}
 
 function generate() {
     // Use newCells array because we don't want to overwrite previous generation as we go
