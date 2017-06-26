@@ -34,6 +34,14 @@ function windowResized() {
   resizeCanvas(windowWidth, canvasHeight);
 }
 
+function mouseClicked() {
+  background(255);
+  things.plotThingy();
+  thing2.plotThingy();
+  thing3.plotThingy();
+  thing4.plotThingy();
+}
+
 function Thingy(x, y, dir) {
   this.direction = dir;
   this.length = 200;
