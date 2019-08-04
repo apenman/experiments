@@ -22,7 +22,52 @@ function draw() {
   // unknownPleasures();  
   // triangleMesh();
   // cubicDisarray();
-  unDeuxTroix();
+  // unDeuxTroix();
+}
+
+function circlePacker() {
+  var circles = [];
+  var minRadius = 2;
+  var maxRadius = 100;
+  var totalCircles = 500;
+  var createCircleAttempts = 500;
+
+  for( var i = 0; i < totalCircles; i++ ) {  
+    createAndDrawCircle();
+  }
+}
+
+function createAndDrawCircle() {
+  var newCircle = {
+    x: Math.floor(Math.random() * size),
+    y: Math.floor(Math.random() * size),
+    radius: minRadius
+  };
+
+  for (var radiusSize = minRadius; radiusSize < maxRadius; radiusSize++) {
+    newCircle.radius = radiusSize;
+    if (doesCircleHaveACollision(newCircle)) {
+      newCircle.radius--;
+      break;
+    }
+  }
+}
+
+// Return true of false depending on whether the circle collides with another.
+function doesCircleHaveACollision(circle) {
+  // If their radii combined, is greater than the distance between each of their centers, then we know there’s a collision.
+  for (var i = 0; i < circles.length; i++) {
+    var otherCircle = circles[i];
+    var a = circle.radius + otherCircle.radius;
+    var x = circle.x - otherCircle.x;
+    var y = circle.y - otherCircle.y;
+
+    if (a >= Math.sqrt(x * x + y * y)) {
+      return true;
+    }
+  }
+  // but return false for now
+  return false;
 }
 
 function unDeuxTroix() {
@@ -58,6 +103,7 @@ function drawMultipleLines(x, y, width, height, positions) {
 }
 
 function cubicDisarray() {
+  stroke(1);
   var squareSize = 30;
   var randomDisplacement = 15;
   var rotateMultiplier = 20;
@@ -86,6 +132,7 @@ function cubicDisarray() {
 
 
 function triangleMesh() {
+  stroke(1);
   var lines = [];
   var gapX = canvasWidth / 7;
   var gapY = canvasHeight / 7;
@@ -159,6 +206,7 @@ function drawTriangle(a, b, c) {
 
 // Still need to tweak values so that it looks nicer
 function unknownPleasures() {
+  stroke(1);
   step = 20;
   lines = [];
   generateLinePoints();
@@ -198,6 +246,7 @@ function drawUnknownLines() {
 }
 
 function tiledLines() {
+  stroke(1);
   step = 80;
   
   for (var x = 0; x < canvasWidth; x += step) {
